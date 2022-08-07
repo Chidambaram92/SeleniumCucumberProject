@@ -1,8 +1,0 @@
-com\test\pages\SearchPage.class
-com\qa\utils\CommonMethodsSelenium.class
-com\qa\utils\ConfigReader.class
-com\test\pages\HomePageOrange.class
-com\qa\utils\LoadExcelData.class
-com\test\pages\HomePage.class
-com\test\pages\EmployeePage.class
-com\test\pages\LoginOrange.class

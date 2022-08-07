@@ -11,7 +11,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
 
 public class HomePageSteps {
-	private WebDriver driver= CommonMethodsSelenium.getDriver();
+	private final WebDriver driver= CommonMethodsSelenium.getDriver();
 	HomePage homePage=new HomePage(driver);
 	
 	

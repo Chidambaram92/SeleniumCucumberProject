@@ -15,10 +15,6 @@ public class ConfigReader {
 					+ "config.properties");
 			propObj.load(inputOperation);	
 		
-		} 
-		catch (FileNotFoundException e) 
-		{
-			e.printStackTrace();
 		} catch (IOException e)
 		{
 			e.printStackTrace();

@@ -19,7 +19,7 @@ import org.testng.Assert;
 
 
 public class LoginPageOrangeSteps {
-	private WebDriver driver= CommonMethodsSelenium.getDriver();
+	private final WebDriver driver= CommonMethodsSelenium.getDriver();
 	LoginOrange loginPageOrange=new LoginOrange(driver);
 	HomePageOrange homeOrange= new HomePageOrange(driver);
 
