@@ -1,9 +1,12 @@
 package com.src.teststeps;
 
 
-import java.io.IOException;
+
 import java.util.List;
 
+import com.test.pages.DataTablePage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 
 import com.qa.utils.CommonMethodsSelenium;
@@ -22,14 +25,14 @@ public class LoginPageOrangeSteps {
 	private final WebDriver driver= CommonMethodsSelenium.getDriver();
 	LoginOrange loginPageOrange=new LoginOrange(driver);
 	HomePageOrange homeOrange= new HomePageOrange(driver);
-
+	private static final Logger LOGGER = LogManager.getLogger(DataTablePage.class);
 
 
 	@And("user navigates to orange site launch page")
 	public void userGetsDataLoginPage() {
 		String browserName = ApplicationHooks.prop.getProperty("orangePageURL");
 		loginPageOrange.launchSite(browserName);
-		System.out.println("Orange site launch is done");
+		LOGGER.info("Orange site launch is done");
 	}
 
 	@When("verify if orange site home page is navigated")
@@ -37,7 +40,7 @@ public class LoginPageOrangeSteps {
 		String userName = ApplicationHooks.prop.getProperty("orangeUser");
 		String passWord = ApplicationHooks.prop.getProperty("orangePassword");
 		Assert.assertTrue(loginPageOrange.enterLoginCredentials(userName, passWord));
-		System.out.println("Orange site home page is navigated");
+		LOGGER.info("Orange site home page is navigated");
 	}
 	@And("click on PIM link present in the home page")
 	public void userGetPiPage() {
@@ -48,7 +51,7 @@ public class LoginPageOrangeSteps {
 		List<String> categoryList = testData.asList();
 		System.out.println("Expected accounts section list: " + categoryList);
 		List<String> applicationCategoryList = homeOrange.getCategorySectionsList();
-		System.out.println("Actual accounts section list in Application is: " + applicationCategoryList);
+		LOGGER.info("Actual accounts section list in Application is: " + applicationCategoryList);
 
 	}
 	@And("load excel test data with testid {string} testcase name {string} and browser {string}")

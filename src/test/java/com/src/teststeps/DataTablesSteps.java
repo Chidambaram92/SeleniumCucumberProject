@@ -20,7 +20,11 @@ public class DataTablesSteps {
     }
     @When("user verify if required {string} data table page is present")
     public void userVerifyDataTableIsPresent(String employeeTable) {
-        dataTablePage.verifyTableName();
-        LOGGER.info("Data Table: " +employeeTable+ " is displayed in Web site");
+        if(dataTablePage.verifyTableName()){
+            LOGGER.info("Data Table: " +employeeTable+ " is displayed in Web site");
+        }else{
+      LOGGER.error("Data Table: " +employeeTable+ " is not displayed in Web site");
+        }
+
     }
 }

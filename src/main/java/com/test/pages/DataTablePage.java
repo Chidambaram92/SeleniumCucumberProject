@@ -48,6 +48,16 @@ public class DataTablePage extends CommonMethodsSelenium {
             LOGGER.warn("Exception in Data Table element Identification");
         }
         return flagCheck;
-
+    }
+    public void testHeader(){
+        try{
+            WebElement tableHeader= driver.findElement(By.xpath("//table[@id='example']/thead//th[1]"));
+            if(tableHeader.isDisplayed()){
+                LOGGER.info("DATA HEADER PASS");
+            }
+        }catch(NoSuchElementException elementException){
+            elementException.printStackTrace();
+            LOGGER.error("Exception in Data Table HEADER Identification");
+        }
     }
 }
