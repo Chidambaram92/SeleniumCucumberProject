@@ -2,11 +2,11 @@ package com.qa.utils;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
-import org.openqa.selenium.ElementNotVisibleException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
@@ -86,13 +86,13 @@ public class CommonMethodsSelenium {
 	public static synchronized WebDriver getDriver() {
 		return tlDriver.get();
 	}
-	public void waitStatementMethod(WebDriver driver, By locator) throws ElementNotVisibleException,NoSuchElementException {
-		WebDriverWait wait = new WebDriverWait(driver, 40);
+	public void waitStatementMethod(WebDriver driver, By locator) throws NoSuchElementException {
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
 		wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 	}
 	public void waitElementToClick(WebDriver driver, By locator)  {
-		WebDriverWait wait = new WebDriverWait(driver, 40);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
 		wait.until(ExpectedConditions.elementToBeClickable(locator));
 	}
 	public void enterText(WebDriver driver, By locator,String keyString) {

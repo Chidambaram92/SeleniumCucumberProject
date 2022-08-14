@@ -8,8 +8,8 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
 		features = {"src/test/resources/feature"},
 		glue = {"com/src/teststeps"},
-		plugin = {"pretty","html:target/cucumber-reports",
-				"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
+		plugin = {"pretty","html:target/cucumber-reports"},
+				//"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
 		monochrome= true,
 		tags="@OrangeTest"
 		)

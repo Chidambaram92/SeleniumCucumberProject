@@ -1,16 +1,20 @@
 package com.test.pages;
 
 import com.qa.utils.CommonMethodsSelenium;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.net.MalformedURLException;
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 public class DataTablePage extends CommonMethodsSelenium {
     private WebDriver driver;
-
+    private static final Logger LOGGER = LogManager.getLogger(DataTablePage.class);
     // Declare Page Objects here
 
     private By tableRow= By.xpath("//input[@id='txtPassword']");
@@ -22,8 +26,13 @@ public class DataTablePage extends CommonMethodsSelenium {
 
     }
     public void launchDataTableSite(String dataTablePageLink) {
-        driver.get(dataTablePageLink);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        try{
+            driver.get(dataTablePageLink);
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
 
     }
     public boolean verifyTableName(){
@@ -36,6 +45,7 @@ public class DataTablePage extends CommonMethodsSelenium {
           }
         }catch(NoSuchElementException elementException){
             elementException.printStackTrace();
+            LOGGER.warn("Exception in Data Table element Identification");
         }
         return flagCheck;
 
