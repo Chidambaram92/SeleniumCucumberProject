@@ -10,14 +10,13 @@ import org.openqa.selenium.WebElement;
 
 import java.net.MalformedURLException;
 import java.time.Duration;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class DataTablePage extends CommonMethodsSelenium {
     private WebDriver driver;
     private static final Logger LOGGER = LogManager.getLogger(DataTablePage.class);
     // Declare Page Objects here
-
-    private By tableRow= By.xpath("//input[@id='txtPassword']");
     private By tableColumn= By.xpath("//input[@id='txtUsername']");
     private By tableName= By.id("example");
 
@@ -59,5 +58,29 @@ public class DataTablePage extends CommonMethodsSelenium {
             elementException.printStackTrace();
             LOGGER.error("Exception in Data Table HEADER Identification");
         }
+    }
+    public boolean verifyTableIteration(){
+        boolean  flagCheck=false;
+        try{
+            WebElement tableName= driver.findElement(By.id("example"));
+            List<WebElement> rows=tableName.findElements(By.tagName("tr"));
+            //List<WebElement> rows=tableName.findElements(By.xpath("//table[@id='example']/tbody/tr"));
+            for(int rowNum=0;rowNum<rows.size();rowNum++){
+                List<WebElement>columns=rows.get(rowNum).findElements(By.tagName("td"));
+               // List<WebElement>columns=rows.get(rowNum).findElements(By.xpath("(//table[@id='example']/tbody/tr)['" +rowNum+ "']/td"));
+                System.out.println("Number of columns:"+columns.size());
+                for(int colNum=0;colNum<columns.size();colNum++){
+                   System.out.println("Column Value: "+columns.get(colNum).getText());
+
+                }
+            }
+            if(tableName.isDisplayed()){
+                flagCheck=true;
+            }
+        }catch(NoSuchElementException elementException){
+            elementException.printStackTrace();
+            LOGGER.warn("Exception in Data Table element Identification");
+        }
+        return flagCheck;
     }
 }

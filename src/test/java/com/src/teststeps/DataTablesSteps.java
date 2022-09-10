@@ -22,9 +22,19 @@ public class DataTablesSteps {
     public void userVerifyDataTableIsPresent(String employeeTable) {
         if(dataTablePage.verifyTableName()){
             LOGGER.info("Data Table: " +employeeTable+ " is displayed in Web site");
+            dataTablePage.testHeader();
         }else{
       LOGGER.error("Data Table: " +employeeTable+ " is not displayed in Web site");
         }
 
     }
+
+  @When("user verify if able iterate through tables as expected")
+  public void userVerifyDataTableIterationIsFeasible() {
+    if (dataTablePage.verifyTableIteration()) {
+      LOGGER.info("Data Table: able iterate through Employee table");
+    } else {
+      LOGGER.error("Data Table: not able iterate through Employee table");
+    }
+        }
 }
