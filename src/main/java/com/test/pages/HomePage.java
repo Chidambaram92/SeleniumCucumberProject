@@ -1,5 +1,6 @@
 package com.test.pages;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -28,8 +29,7 @@ public class HomePage extends CommonMethodsSelenium{
 	// Declare Page specific methods
 	public void navigateToHomePage(String homePagelink) {
 		driver.get(homePagelink);
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 	}
 	public boolean verifyHomePageLoad() {
 

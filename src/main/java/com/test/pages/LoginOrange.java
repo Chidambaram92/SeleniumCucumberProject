@@ -1,5 +1,6 @@
 package com.test.pages;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -23,7 +24,7 @@ public class LoginOrange extends CommonMethodsSelenium {
 	}
 	public void launchSite(String homePagelink) {
 		driver.get(homePagelink);
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 
 	}
 	public boolean enterLoginCredentials(String userName, String password) {
