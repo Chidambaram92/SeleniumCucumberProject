@@ -11,13 +11,14 @@ import org.openqa.selenium.WebElement;
 import com.qa.utils.CommonMethodsSelenium;
 
 public class LoginOrange extends CommonMethodsSelenium {
-	private WebDriver driver;
+	private final WebDriver driver;
 
 	// Declare Page Objects here
-	private By loginUserName= By.xpath("//input[@id='txtUsername']");
-	private By loginPassword= By.xpath("//input[@id='txtPassword']");
-	private By loginButton= By.id("btnLogin");
-
+	private final By loginUserName= By.xpath("//input[@name='username']");
+	private final By loginPassword= By.xpath("//input[@name='password']");
+	private final By loginButton= By.xpath("//button[text()[normalize-space() = 'Login']]");
+ //example objects:
+	//div[@class='oxd-table']//div[@class='oxd-table-row oxd-table-row--with-border']
 
 	public LoginOrange(WebDriver driver) {
 		this.driver=driver;
@@ -34,7 +35,7 @@ public class LoginOrange extends CommonMethodsSelenium {
 			enterText(driver, loginUserName, userName);
 			enterText(driver, loginPassword, password);
 			clickElement(driver, loginButton);
-			if(driver.getCurrentUrl().contains("orangehrmlive.com/index.php/dashboard")) {
+			if(driver.getCurrentUrl().contains("orangehrmlive.com/web/index.php/pim/viewEmployeeList")) {
 				flagValue= true;
 			}
 

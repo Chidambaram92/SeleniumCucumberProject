@@ -12,14 +12,14 @@ import org.openqa.selenium.WebElement;
 import com.qa.utils.CommonMethodsSelenium;
 
 public class HomePage extends CommonMethodsSelenium{
-	private WebDriver driver;
+	private final WebDriver driver;
 
 	// Declare Page Objects here
-	private By siteLogo= By.xpath("//img[@class='logo img-responsive']");
-	private By contactUsLink= By.xpath("//a[text()='Contact us']");
-	private By signInLink= By.linkText("Sign in");
-	private By searchText= By.xpath("//input[@name='search_query']");
-	private By headerText= By.xpath("//span[contains(text(),'Dresses')]");
+	private final By siteLogo= By.xpath("//img[@class='logo img-responsive']");
+	private final By contactUsLink= By.xpath("//a[text()='Contact us']");
+	private final By signInLink= By.linkText("Sign in");
+	private final By searchText= By.xpath("//input[@name='search_query']");
+	private final By headerText= By.xpath("//span[contains(text(),'Dresses')]");
 	
 
 	public HomePage(WebDriver driver) {

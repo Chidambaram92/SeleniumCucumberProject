@@ -6,7 +6,7 @@ Feature: Login Orange Test Feature
     And verify if orange site home page is navigated
 
   @OrangeTest
-  Scenario: SearchPage select for a particulra id
+  Scenario: SearchPage select for a particular id
     When I verify the tabs present in Home page
       | Admin |
       | PIM   |

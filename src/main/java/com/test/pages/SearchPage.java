@@ -14,11 +14,11 @@ import com.qa.utils.CommonMethodsSelenium;
 
 public class SearchPage extends CommonMethodsSelenium {
 
-	private WebDriver driver;
+	private final WebDriver driver;
 	// Declare Page Objects here
-	private By searchText= By.xpath("//input[@name='search_query']");
-	private By searchRsultsList= By.xpath("//div[@class='ac_results']/ul/li");
-	private By searchResultsNewsletter=By.xpath("//h4[text()='Newsletter']");
+	private final By searchText= By.xpath("//input[@name='search_query']");
+	private final By searchRsultsList= By.xpath("//div[@class='ac_results']/ul/li");
+	private final By searchResultsNewsletter=By.xpath("//h4[text()='Newsletter']");
 
 	public SearchPage(WebDriver driver) {
 		this.driver= driver;
