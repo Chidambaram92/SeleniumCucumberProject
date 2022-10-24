@@ -13,6 +13,7 @@ import org.openqa.selenium.WebElement;
 import com.qa.utils.CommonMethodsSelenium;
 import com.qa.utils.LoadExcelData;
 
+
 public class HomePageOrange extends CommonMethodsSelenium {
 	private WebDriver driver;
 	LoadExcelData exceldata= new LoadExcelData();
@@ -21,7 +22,7 @@ public class HomePageOrange extends CommonMethodsSelenium {
 	private By PIMLink = By.xpath("//ul[@id='mainMenuFirstLevelUnorderedList']/li/a/b[contains(text(),'PIM')]");
 	private By employeeName = By.xpath("//input[@id='empsearch_employee_name_empName']");
 	private By searchButton = By.xpath("//input[@id='searchBtn']");
-	private By categorySection= By.xpath("//ul[@id='mainMenuFirstLevelUnorderedList']/li/a/b");
+	private By categorySection= By.xpath("//ul[@class='oxd-main-menu']/li/a/span");
 
 	public HomePageOrange(WebDriver driver) {
 		this.driver=driver;
@@ -51,7 +52,6 @@ public class HomePageOrange extends CommonMethodsSelenium {
 			System.out.println(text);
 			categoryList.add(text);
 		}
-
 		return categoryList;
 
 	}

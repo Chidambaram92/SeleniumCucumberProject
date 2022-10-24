@@ -28,6 +28,7 @@ public class DataTablePage extends CommonMethodsSelenium {
         try{
             driver.get(dataTablePageLink);
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+            LOGGER.info("Able to launch Site successfully");
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -64,10 +65,10 @@ public class DataTablePage extends CommonMethodsSelenium {
         try{
             WebElement tableName= driver.findElement(By.id("example"));
             List<WebElement> rows=tableName.findElements(By.tagName("tr"));
-            //List<WebElement> rows=tableName.findElements(By.xpath("//table[@id='example']/tbody/tr"));
+           // List<WebElement> rows=tableName.findElements(By.xpath("//table[@id='example']/tbody/tr"));
             for(int rowNum=0;rowNum<rows.size();rowNum++){
-                List<WebElement>columns=rows.get(rowNum).findElements(By.tagName("td"));
-               // List<WebElement>columns=rows.get(rowNum).findElements(By.xpath("(//table[@id='example']/tbody/tr)['" +rowNum+ "']/td"));
+               // List<WebElement>columns=rows.get(rowNum).findElements(By.tagName("td"));
+                List<WebElement>columns=rows.get(rowNum).findElements(By.xpath("(//table[@id='example']/tbody/tr)['" +rowNum+ "']/td"));
                 System.out.println("Number of columns:"+columns.size());
                 for(int colNum=0;colNum<columns.size();colNum++){
                    System.out.println("Column Value: "+columns.get(colNum).getText());

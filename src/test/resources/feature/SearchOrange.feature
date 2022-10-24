@@ -8,6 +8,8 @@ Feature: Login Orange Test Feature
   @OrangeTest
   Scenario: SearchPage select for a particular id
     When I verify the tabs present in Home page
-      | Admin |
-      | PIM   |
-      | Time  |
+      | Admin   |
+      | PIM     |
+      | Leave   |
+      | Time    |
+      |Recruitment|

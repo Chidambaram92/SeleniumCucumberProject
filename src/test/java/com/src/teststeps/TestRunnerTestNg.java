@@ -11,7 +11,7 @@ import io.cucumber.testng.CucumberOptions;
 		plugin = {"pretty","html:target/cucumber-reports"},
 				//"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
 		monochrome= true,
-		tags="@OrangeTest"
+		tags="@SearchTest"
 		)
 public class TestRunnerTestNg extends AbstractTestNGCucumberTests {
 	@Override

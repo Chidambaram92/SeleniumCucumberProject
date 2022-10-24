@@ -179,8 +179,8 @@
 				<version>${maven.surefire.version}</version>
 				<configuration>
 					<includes> 
-						<include>**/TestRunner.java</include>
-						<!-- <include>**/TestRunnerTestNg.java</include-->
+						<!--include>**/TestRunner.java</include>-->
+						<include>**/TestRunnerTestNg.java</include>
 					</includes>
 				<!-- 	<parallel>methods</parallel>
 					<threadCount>4</threadCount>
