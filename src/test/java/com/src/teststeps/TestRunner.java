@@ -9,10 +9,10 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(
 		features = {"src/test/resources/feature"},
 		glue = {"com/src/teststeps"},
-		plugin = {"pretty","html:target/cucumber-html-report", "json:target/cucumber-json-report.json"},
+		plugin = {"pretty","html:target/cucumber-output/report.html", "json:target/cucumber-output2/report.json"},
 		monochrome= true,
 		//tags="@HomeTest or @SearchTest or @OrangeTest"
-		tags="@DataTable"
+		tags="@DataTable or @OrangeTest2"
 		)
 
 public class TestRunner {

@@ -14,6 +14,7 @@ import com.qa.utils.CommonMethodsSelenium;
 import com.qa.utils.LoadExcelData;
 
 
+
 public class HomePageOrange extends CommonMethodsSelenium {
 	private WebDriver driver;
 	LoadExcelData exceldata= new LoadExcelData();
@@ -52,6 +53,8 @@ public class HomePageOrange extends CommonMethodsSelenium {
 			System.out.println(text);
 			categoryList.add(text);
 		}
+
+		takescreenShot(driver,"OrangeTest Category Page");
 		return categoryList;
 
 	}

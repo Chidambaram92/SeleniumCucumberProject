@@ -43,6 +43,7 @@ public class SearchPage extends CommonMethodsSelenium {
 			if(oneElement.getText().contains(serachElementInList)){
 				try {
 					oneElement.click();
+					takescreenShot(driver,"SearchPage");
 					break;
 				}catch(ElementClickInterceptedException e ) {
 					e.printStackTrace();
@@ -58,7 +59,8 @@ public class SearchPage extends CommonMethodsSelenium {
 		WebElement newsLetter= driver.findElement(searchResultsNewsletter);
 		Actions action= new Actions(driver);
 		try {
-			action.moveToElement(newsLetter).build().perform();	
+			action.moveToElement(newsLetter).build().perform();
+			takescreenShot(driver,"FooterPage");
 			
 		}catch(ElementNotInteractableException e) {
 			e.printStackTrace();

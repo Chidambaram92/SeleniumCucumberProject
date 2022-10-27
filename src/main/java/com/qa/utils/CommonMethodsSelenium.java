@@ -2,7 +2,11 @@ package com.qa.utils;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
@@ -127,11 +131,20 @@ public class CommonMethodsSelenium {
 		Select selectObj = new Select(element);
 		selectObj.selectByVisibleText(ddlValue);
 	}
+	public String takeCurrentTimeStamp(){
+		LocalDateTime instance = LocalDateTime.now();
+
+		DateTimeFormatter formatter
+				= DateTimeFormatter.ofPattern("dd-MM-yyyy hh:mm");
+		return formatter.format(instance);
+	}
 	public void takescreenShot(WebDriver driver,String pageName) {
+		String currentTime=takeCurrentTimeStamp();
 		 File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 	        
 	        try {
-	            FileUtils.copyFile(screenshot, new File("E:\\New Maven\\screenshots\\"+pageName+".png"));
+      FileUtils.copyFile(
+          screenshot, new File(System.getProperty("user.dir") +"\\src\\resources\\gherkin"+"\\" +pageName + ".png"));
 	        } catch (IOException e) {
 	            System.out.println(e.getMessage());
 	        }
