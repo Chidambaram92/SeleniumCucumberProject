@@ -43,7 +43,7 @@ public class SearchPage extends CommonMethodsSelenium {
 			if(oneElement.getText().contains(serachElementInList)){
 				try {
 					oneElement.click();
-					takescreenShot(driver,"SearchPage");
+					takescreenShot(driver,screenShot++);
 					break;
 				}catch(ElementClickInterceptedException e ) {
 					e.printStackTrace();
@@ -60,7 +60,7 @@ public class SearchPage extends CommonMethodsSelenium {
 		Actions action= new Actions(driver);
 		try {
 			action.moveToElement(newsLetter).build().perform();
-			takescreenShot(driver,"FooterPage");
+			takescreenShot(driver,screenShot++);
 			
 		}catch(ElementNotInteractableException e) {
 			e.printStackTrace();

@@ -12,7 +12,7 @@ import io.cucumber.junit.CucumberOptions;
 		plugin = {"pretty","html:target/cucumber-output/report.html", "json:target/cucumber-output2/report.json"},
 		monochrome= true,
 		//tags="@HomeTest or @SearchTest or @OrangeTest"
-		tags="@DataTable or @OrangeTest2"
+		tags="@DataTable"
 		)
 
 public class TestRunner {

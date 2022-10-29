@@ -54,7 +54,7 @@ public class HomePageOrange extends CommonMethodsSelenium {
 			categoryList.add(text);
 		}
 
-		takescreenShot(driver,"OrangeTest Category Page");
+		takescreenShot(driver,screenShot++);
 		return categoryList;
 
 	}

@@ -1,0 +1,14 @@
+{
+  "Name": "Handle JSON",
+  "Author": "Test",
+  "Company List": [
+    "Company1: eBay",
+    "Company2: Paypal",
+    "Company3: Google"
+  ],
+  "Employee List": [
+    "Name1: Roy",
+    "Name2: Shawn",
+    "Name3: Jerry"
+  ]
+}

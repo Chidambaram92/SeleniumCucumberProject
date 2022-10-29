@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
@@ -30,6 +31,8 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class CommonMethodsSelenium {
 	public static WebDriver driver;
+	public static int screenShot;
+	 private static String timestamp = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss").format(new Date());
 	public static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
 	JavascriptExecutor js;
 //	
@@ -138,13 +141,15 @@ public class CommonMethodsSelenium {
 				= DateTimeFormatter.ofPattern("dd-MM-yyyy hh:mm");
 		return formatter.format(instance);
 	}
-	public void takescreenShot(WebDriver driver,String pageName) {
-		String currentTime=takeCurrentTimeStamp();
-		 File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-	        
-	        try {
+	public void takescreenShot(WebDriver driver, int countValue) {
+		String valTimeStamp=timestamp.replace(":", "-");
+		 String filePath=System.getProperty("user.dir") +"\\src\\resources\\gherkin\\screenshots".concat("\\").concat(valTimeStamp).concat("\\");
+		 String screenCount=Integer.toString(countValue);
+		 File sourceScreenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+
+		try {
       FileUtils.copyFile(
-          screenshot, new File(System.getProperty("user.dir") +"\\src\\resources\\gherkin"+"\\" +pageName + ".png"));
+			  sourceScreenshot, new File(filePath+(screenCount)+".png"));
 	        } catch (IOException e) {
 	            System.out.println(e.getMessage());
 	        }

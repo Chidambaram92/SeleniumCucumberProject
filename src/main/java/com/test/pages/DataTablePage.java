@@ -53,7 +53,7 @@ public class DataTablePage extends CommonMethodsSelenium {
         try{
             WebElement tableHeader= driver.findElement(By.xpath("//table[@id='example']/thead//th[1]"));
             if(tableHeader.isDisplayed()){
-                takescreenShot(driver,"Data Header");
+                takescreenShot(driver,screenShot++);
                 LOGGER.info("DATA HEADER PASS");
             }
         }catch(NoSuchElementException elementException){
@@ -77,7 +77,7 @@ public class DataTablePage extends CommonMethodsSelenium {
                 }
             }
             if(tableName.isDisplayed()){
-                takescreenShot(driver,"Data Table");
+                takescreenShot(driver,screenShot++);
                 flagCheck=true;
             }
         }catch(NoSuchElementException elementException){
