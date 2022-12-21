@@ -19,6 +19,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.safari.SafariDriver;
@@ -65,17 +66,25 @@ public class CommonMethodsSelenium {
 
 		System.out.println("browser value is: " + browser);
        try {
-    	   if (browser.equals("chrome")) {
-   			WebDriverManager.chromedriver().setup();
-   			tlDriver.set(new ChromeDriver());
-   		} else if (browser.equals("firefox")) {
-   			WebDriverManager.firefoxdriver().setup();
-   			tlDriver.set(new FirefoxDriver());
-   		} else if (browser.equals("safari")) {
-   			tlDriver.set(new SafariDriver());
-   		} else {
-   			System.out.println("Please pass the correct browser value: " + browser);
-   		}
+		   switch (browser) {
+			   case "chrome":
+				   ChromeOptions options = new ChromeOptions();
+				   options.setAcceptInsecureCerts(true);
+				   options.addArguments("disable-popup-blocking");
+				   WebDriverManager.chromedriver().setup();
+				   tlDriver.set(new ChromeDriver(options));
+				   break;
+			   case "firefox":
+				   WebDriverManager.firefoxdriver().setup();
+				   tlDriver.set(new FirefoxDriver());
+				   break;
+			   case "safari":
+				   tlDriver.set(new SafariDriver());
+				   break;
+			   default:
+				   System.out.println("Please pass the correct browser value: " + browser);
+				   break;
+		   }
         getDriver().manage().deleteAllCookies();
    		getDriver().manage().window().maximize();
    		
@@ -155,5 +164,4 @@ public class CommonMethodsSelenium {
 	        }
 		
 	}
-	
 }

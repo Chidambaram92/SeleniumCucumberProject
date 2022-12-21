@@ -10,7 +10,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
 
 public class SearchPageSteps {
-	private WebDriver driver= CommonMethodsSelenium.getDriver();
+	private final WebDriver driver= CommonMethodsSelenium.getDriver();
 	SearchPage searchPage=new SearchPage(driver);
 	Scenario scenario;
 
