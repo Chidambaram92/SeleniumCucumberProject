@@ -14,8 +14,8 @@ public class DataTablesSteps {
     private static final Logger LOGGER = LogManager.getLogger(DataTablesSteps.class);
     @And("user navigates to data table page site launch page")
     public void userGetsDataLoginPage() {
-        String browserName = ApplicationHooks.prop.getProperty("dataTablePageURL");
-        dataTablePage.launchDataTableSite(browserName);
+        String applicationUrl = ApplicationHooks.prop.getProperty("dataTablePageURL");
+        dataTablePage.launchDataTableSite(applicationUrl);
         LOGGER.info("Data Table site launch is done");
     }
     @When("user verify if required {string} data table page is present")
